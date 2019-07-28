@@ -5,6 +5,8 @@
 # | https://github.com/gkbrk/SirLogsalot                     |
 # +----------------------------------------------------------+
 
+EXTENSION "ldpl_irc_bot.cpp"
+
 DATA:
     # LDPLIRCBot Library Variables ------------------------------------------------------------------------
     ircbot/nick is external text        # The nick of our bot

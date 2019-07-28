@@ -12,7 +12,7 @@ To add IRCBot.ldpl to your LDPL project you must include `ircbot.cpp` in your co
 Include the library into your LDPL project by copying the file *ldpl_irc_bot.cpp*
 to your project directory and then adding the line:
 
-`EXTERNAL "ldpl_irc_bot.cpp"`
+`EXTENSION "ldpl_irc_bot.cpp"`
 
 ## Example and documentation
 The file `ldpl_irc_bot.ldpl` is an example of how to use this library. The library is also documented within that file.
