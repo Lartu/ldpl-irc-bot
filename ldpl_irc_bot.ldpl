@@ -1,9 +1,11 @@
-# +-------------------------------+--------------------------+
-# | IRCBot.ldpl by Martín del Río | IRC bot library for LDPL |
-# +-------------------------------+--------------------------+
-# | C++ code based on the code of SirLogsalot by gkbrk:      |
-# | https://github.com/gkbrk/SirLogsalot                     |
-# +----------------------------------------------------------+
+#  _    ____________ _     ___________  _____  _     _ _     
+# | |   |  _  \ ___ \ |   |_   _| ___ \/  __ \| |   (_) |    
+# | |   | | | | |_/ / |     | | | |_/ /| /  \/| |    _| |__  
+# | |   | | | |  __/| |     | | |    / | |    | |   | | '_ \ 
+# | |___| |/ /| |   | |_____| |_| |\ \ | \__/\| |___| | |_) |
+# \_____/___/ \_|   \_____/\___/\_| \_| \____/\_____/_|_.__/                                                        
+# This is the LDPL IRC Bot Library by Martín del Río (https://github.com/lartu)
+# based on the code of SirLogsalot by gkbrk (https://github.com/gkbrk/SirLogsalot)
 
 EXTENSION "ldpl_irc_bot.cpp"
 
