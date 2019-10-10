@@ -1,0 +1,43 @@
+# Example irc bot using LDPLIRCLib
+
+# --- Includes ---
+include "ldpl-irc-bot/ldpl_irc_bot.ldpl"
+
+# --- Procedure Section ---
+procedure:
+
+# First we create the bot
+irc set nick "LDPLBot"
+irc set server "irc.freenode.net" on port "6667"
+irc add channel "#ldplbottest"
+irc add channel "#someotherchannel"
+irc start bot
+
+# Then define the required subprocedures
+sub ircbot.onmessage
+    parameters:
+        msg_text is text
+        msg_from is text
+        msg_channel is text
+    procedure:
+        display "Message received from " msg_from " (channel " msg_channel "): "
+        display msg_text crlf
+        # Echo
+        irc send msg_text to msg_channel
+end sub
+
+sub ircbot.onjoin
+    parameters:
+        join_name is text
+        join_channel is text
+    procedure:
+        display join_name " has joined " join_channel crlf
+end sub
+
+sub ircbot.onpart
+    parameters:
+        part_name is text
+        part_channel is text
+    procedure:
+        display part_name " has left " part_channel crlf
+end sub
