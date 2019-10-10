@@ -1,0 +1,29 @@
+#  _    ____________ _     _   _______ _     ______                _                
+# | |   |  _  \ ___ \ |   | | | | ___ \ |    | ___ \              | |               
+# | |   | | | | |_/ / |   | | | | |_/ / |    | |_/ /___  ___  ___ | |_   _____ _ __ 
+# | |   | | | |  __/| |   | | | |    /| |    |    // _ \/ __|/ _ \| \ \ / / _ \ '__|
+# | |___| |/ /| |   | |___| |_| | |\ \| |____| |\ \  __/\__ \ (_) | |\ V /  __/ |   
+# \_____/___/ \_|   \_____/\___/\_| \_\_____/\_| \_\___||___/\___/|_| \_/ \___|_|
+#
+# +-----------------------------------------------------------------------------------------+
+# | URL to IP resolving for LDPL - Library adapted for LDPL by Lartu (github.com/lartu)     |
+# | from https://www.binarytides.com/hostname-to-ip-address-c-sockets-linux/ by Silver Moon |
+# +-----------------------------------------------------------------------------------------+
+
+extension "ldpl-hostname-ip.cpp"
+
+data:
+urlresolver.hostname is external text
+urlresolver.ip is external text
+
+procedure:
+sub urlresolver.resolveurl
+    parameters:
+        hostname is text
+        ip is text
+    procedure:
+        store hostname in urlresolver.hostname
+        call external urlresolver.resolveurl_cpp
+        store urlresolver.ip in ip
+end sub
+create statement "RESOLVE URL $ IN $" executing urlresolver.resolveurl

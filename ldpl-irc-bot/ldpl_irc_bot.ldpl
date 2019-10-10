@@ -1,0 +1,93 @@
+#  _    ____________ _     ___________  _____  _     _ _     
+# | |   |  _  \ ___ \ |   |_   _| ___ \/  __ \| |   (_) |    
+# | |   | | | | |_/ / |     | | | |_/ /| /  \/| |    _| |__  
+# | |   | | | |  __/| |     | | |    / | |    | |   | | '_ \ 
+# | |___| |/ /| |   | |_____| |_| |\ \ | \__/\| |___| | |_) |
+# \_____/___/ \_|   \_____/\___/\_| \_| \____/\_____/_|_.__/                                                        
+# This is the LDPL IRC Bot Library by Martín del Río (https://github.com/lartu)
+# based on the code of SirLogsalot by gkbrk (https://github.com/gkbrk/SirLogsalot)
+
+include "ldpl-hostname-ip/ldpl-hostname-ip.ldpl"
+extension "ldpl_irc_bot.cpp"
+
+data:
+    # LDPLIRCBot Library Variables ------------------------------------------------------------------------
+    ircbot.nick is external text        # The nick of our bot
+    ircbot.server is external text      # The IRC server we want to connect to
+    ircbot.port is external text        # The port of the IRC server we want to connect to
+    ircbot.channels is external text    # The channels we want to join (comma separated)
+    ircbot.to is external text          # The recipient of our message
+    ircbot.message is external text     # The mensaje we received or want to send
+    ircbot.from is external text        # The user who has sent the last message or joined / left a channel
+    ircbot.channel is external text     # The channel where the action happened
+    # -----------------------------------------------------------------------------------------------------
+
+procedure:
+    store "" in ircbot.nick
+    store "" in ircbot.server
+    store "" in ircbot.port
+    store "" in ircbot.channels
+
+    sub ircbot.setNick
+        parameters:
+            nick is text
+        procedure:
+            store nick in ircbot.nick
+    end sub
+    create statement "IRC SET NICK $" executing ircbot.setNick
+
+    sub ircbot.setServer
+        parameters:
+            server is text
+            port is text
+        procedure:
+            resolve url server in server
+            store port in ircbot.port
+            store server in ircbot.server
+    end sub
+    create statement "IRC SET SERVER $ ON PORT $" executing ircbot.setServer
+
+    sub ircbot.startbot
+        call external ircbot.create-bot
+    end sub
+    create statement "IRC START BOT" executing ircbot.startbot
+
+    sub ircbot.addchannel
+        parameters:
+            channel is text
+        local data:
+            len is number
+        procedure:
+            get length of ircbot.channels in len
+            if len is greater than 0 then
+                in ircbot.channels join ircbot.channels ","
+            end if
+            in ircbot.channels join ircbot.channels channel
+    end sub
+    create statement "IRC ADD CHANNEL $" executing ircbot.addchannel
+    
+    external sub-procedure ircbot.on-message
+        if ircbot.from is equal to ircbot.nick then
+            return
+        end if
+        call ircbot.onmessage with ircbot.message ircbot.from ircbot.channel
+    end sub-procedure
+    
+    external sub-procedure ircbot.on-join
+        call ircbot.onjoin with ircbot.from ircbot.channel
+    end sub-procedure
+
+    external sub-procedure ircbot.on-part
+        call ircbot.onpart with ircbot.from ircbot.channel
+    end sub-procedure
+
+    sub ircbot.sendmessage
+        parameters:
+            message is text
+            user_to is text
+        procedure:
+            store message in ircbot.message
+            store user_to in ircbot.to
+            call external ircbot.send-message
+    end sub
+    create statement "IRC SEND $ TO $" executing ircbot.sendmessage

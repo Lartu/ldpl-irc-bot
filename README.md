@@ -2,16 +2,15 @@
 
 **The LDPL IRC Bot Library** is a super easy to use IRC bot library for [LDPL](https://www.github.com/lartu/ldpl).
 It lets you write LDPL programs that connect to IRC servers, join channels, send messages and react to received messages in the simplest
-way possible. This library requires **LDPL 3.0.4** or greater.
+way possible. This library requires **LDPL 4.3** or greater.
 
 ## Usage
 
-Include the library into your LDPL project by copying the files *ldpl_irc_bot.cpp*
-and *ldpl_irc_bot.ldpl* to your project directory and then adding the line:
+Include the library into your LDPL project by copying the folder *ldpl-irc-bot* to your project directory and then adding the line:
 
-`INCLUDE "ldpl_irc_bot.ldpl"`
+`include "ldpl-irc-bot/ldpl_irc_bot.ldpl"`
 
-before the `DATA` and `PROCEDURE` sections of your main project file. The library is
+before the `data` and `procedure` sections of your source file. The library is
 ready to be used.
 
 ## Example and documentation
