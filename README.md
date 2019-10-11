@@ -4,7 +4,7 @@
 It lets you write LDPL programs that connect to IRC servers, join channels, send messages and react to received messages in the simplest
 way possible. This library requires **LDPL 4.3** or greater.
 
-## Usage
+## 🧰 Usage
 
 Include the library into your LDPL project by copying the folder *ldpl-irc-bot* to your project directory and then adding the line:
 
@@ -13,7 +13,7 @@ Include the library into your LDPL project by copying the folder *ldpl-irc-bot* 
 before the `data` and `procedure` sections of your source file. The library is
 ready to be used.
 
-## Documentation
+## 📚 Documentation
 
 This library adds five new statements to the language:
  - `irc set nick <text>` sets `<text>` as the nick of your IRC bot.
@@ -60,10 +60,13 @@ sub ircbot.onpart
 end sub
 ```
 
-## Example and documentation
+## 🏫 Example
 The file `example-bot.ldpl` contains an example bot written using this library.
 
-## License
+## 🎁 Contributing
+If you add any features to the library that you'd like to share, be sure to ring us with a pull request and we'll add them to the library! Every contribution is welcome!
+
+## ⚖ License
 The LDPL IRC Bot Library is heavily based on [**SirLogsalot**](https://github.com/gkbrk/SirLogsalot)
 by [Gokberk Yaltirakli](https://github.com/gkbrk). His code is released under the *MIT LICENSE*
 and so is this library.
