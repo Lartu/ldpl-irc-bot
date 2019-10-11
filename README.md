@@ -70,5 +70,5 @@ If you add any features to the library that you'd like to share, be sure to ring
 
 ## ⚖ License
 The LDPL IRC Bot Library is heavily based on [**SirLogsalot**](https://github.com/gkbrk/SirLogsalot)
-by [Gokberk Yaltirakli](https://github.com/gkbrk). His code is released under the *MIT LICENSE*
+by [Gokberk Yaltirakli](https://github.com/gkbrk). His code is released under the *MIT License*
 and so is this library.
