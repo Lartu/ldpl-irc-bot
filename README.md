@@ -8,7 +8,9 @@ way possible. This library requires **LDPL 4.3** or greater.
 
 Include the library into your LDPL project by copying the folder *ldpl-irc-bot* to your project directory and then adding the line:
 
-`include "ldpl-irc-bot/ldpl_irc_bot.ldpl"`
+```coffeescript
+include "ldpl-irc-bot/ldpl_irc_bot.ldpl"
+```
 
 before the `data` and `procedure` sections of your source file. The library is
 ready to be used.
