@@ -13,7 +13,7 @@ You can install this library **by hand** or **using [LPM](https://github.com/Lar
 Open a terminal and write `lpm install ldpl_irc_bot`. Once downloaded, include it in your LDPL project by adding the line:
 
 ```coffeescript
-include ldpl_irc_bot
+using package ldpl_irc_bot
 ```
 
 before the `data` and `procedure` sections of your source file. The library is ready to be used.
