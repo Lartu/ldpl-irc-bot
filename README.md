@@ -1,5 +1,9 @@
 ![The LDPL IRC Bot Library](images/ldpl-irc-logo.png)
 
+![Version](https://img.shields.io/badge/version-1.2-brown.svg)
+![License](https://img.shields.io/badge/license-MIT-yellow)
+![Size](https://img.shields.io/github/languages/code-size/lartu/ldpl-irc-bot)
+
 **The LDPL IRC Bot Library** is a super easy to use IRC bot library for [LDPL](https://www.github.com/lartu/ldpl).
 It lets you write LDPL programs that connect to IRC servers, join channels, send messages and react to received messages in the simplest
 way possible. This library requires **LDPL 4.3** or greater.
